@@ -1,6 +1,6 @@
 version: "3.8"
 services:
- ashuweb1:
+ manishweb1:
   image: flytomanish/oracleweb:appv1
   container_name: manishwebcc11
   ports:
