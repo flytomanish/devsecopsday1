@@ -22,7 +22,13 @@ stages {
                 }
                 
         }
-        
+         stage('Deploy java Project') {
+                
+                steps {
+                        sh 'docker-compose down ; docker-compose up -d      '
+                }
+                
+        }
 
   }
 
