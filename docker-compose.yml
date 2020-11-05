@@ -1,7 +1,7 @@
 version: "3.8"
 services:
  manishweb1:
-  image: flytomanish/oracleweb:appv1
+  image: flytomanish/oracleweb:appv2
   container_name: manishwebcc11
   ports:
   - "2389:80"
