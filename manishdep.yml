@@ -1,12 +1,20 @@
-﻿apiVersion: apps/v1
+# creating namespace 
+apiVersion: v1
+kind: Namespace
+metadata:
+ name: manish-space
+---
+
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
     app: manishhtmlapp
   name: manishhtmlapp
+  namespace: manish-space
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: manishhtmlapp
@@ -22,3 +30,20 @@ spec:
         name: oracleweb
         resources: {}
 status: {}
+
+#expose
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: manish-svc-1 # name of service 
+ namespace: manish-space
+spec:
+ ports:
+ - name: webport
+   port: 1231
+   protocol: TCP
+   targetPort: 80 # it must be same as your original app port 
+ type: LoadBalancer 
+ selector: # use of selector to find the pod with below given labels / tag 
+  app: manishhtmlapp
