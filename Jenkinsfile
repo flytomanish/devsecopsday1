@@ -18,7 +18,7 @@ stages {
         stage('Building java Project') {
                 
                 steps {
-                        sh 'mvn clean package'
+                        sh 'cd jspapp-master;mvn clean package'
                 }
                 
         }
